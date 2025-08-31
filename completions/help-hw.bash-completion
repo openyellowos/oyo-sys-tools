@@ -1,0 +1,6 @@
+# bash completion for help-hw
+_help_hw()
+{
+    COMPREPLY=()
+}
+complete -F _help_hw help-hw

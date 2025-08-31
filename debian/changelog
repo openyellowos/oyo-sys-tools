@@ -1,0 +1,7 @@
+oyo-sys-tools (1.0-1) kerria; urgency=medium
+
+  * Initial packaging of help-hw, oyo-check, pacup.
+  * Move executables to /usr/bin (follow FHS/Debian policy).
+  * Added post-install warning when duplicates exist in /usr/local/bin.
+
+ -- TOSHIO <solution92001@gmail.com>  Sun, 31 Aug 2025 22:00:00 +0900

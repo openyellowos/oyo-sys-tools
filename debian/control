@@ -1,0 +1,17 @@
+Source: oyo-sys-tools
+Section: utils
+Priority: optional
+Maintainer: TOSHIO<solution92001@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Homepage: https://github.com/openyellowos
+
+Package: oyo-sys-tools
+Architecture: all
+Depends: ${misc:Depends}, bash, whiptail, pciutils, usbutils, whiptail, pciutils, usbutils
+Description: Utility scripts for open.Yellow.os (help-hw, oyo-check, pacup)
+ This package provides helpful maintenance and diagnostic tools used in
+ the open.Yellow.os distribution:
+  - help-hw   : collect basic hardware logs (dmesg/lspci/lsusb)
+  - oyo-check : system health checks (profile, disk, services, apt, etc.)
+  - pacup     : package update helper

@@ -1,0 +1,5 @@
+#compdef help-hw
+_arguments \
+  '(-h --help)'{-h,--help}'[show help]' \
+  '--version[show version]' \
+  '--output[write output file]:file:_files'

@@ -1,0 +1,6 @@
+#compdef oyo-check
+_arguments \
+  '(-h --help)'{-h,--help}'[show help]' \
+  '--quiet[reduce output]' \
+  '--json[print as JSON]' \
+  '--version[show version]'

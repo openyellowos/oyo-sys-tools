@@ -1,0 +1,6 @@
+# bash completion for oyo-check
+_oyo_check()
+{
+    COMPREPLY=()
+}
+complete -F _oyo_check oyo-check

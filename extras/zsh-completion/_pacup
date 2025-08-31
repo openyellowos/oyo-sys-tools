@@ -1,0 +1,6 @@
+#compdef pacup
+_arguments \
+  '(-h --help)'{-h,--help}'[show help]' \
+  '--dry-run[show actions without applying]' \
+  '--auto-yes[assume yes to prompts]' \
+  '--version[show version]'

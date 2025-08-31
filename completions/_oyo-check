@@ -1,0 +1,2 @@
+#compdef oyo-check
+_arguments '*:file:_files'

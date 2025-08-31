@@ -1,0 +1,21 @@
+# bash completion for help-hw
+_help_hw()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="--help -h --version --output"
+
+    if [[ ${cur} == -* ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+        return 0
+    fi
+    # complete file after --output
+    for ((i=1; i<COMP_CWORD; i++)); do
+        if [[ "${COMP_WORDS[i]}" == "--output" ]]; then
+            COMPREPLY=( $(compgen -f -- "${cur}") )
+            return 0
+        fi
+    done
+}
+complete -F _help_hw help-hw

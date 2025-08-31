@@ -1,0 +1,26 @@
+.TH oyo-check 1 "August 2025" "open.Yellow.os" "User Commands"
+.SH NAME
+oyo-check \- run open.Yellow.os health checks
+.SH SYNOPSIS
+.B oyo-check
+[\-h|\-\-help] [\-\-quiet] [\-\-json]
+.SH DESCRIPTION
+.B oyo-check
+runs a set of system health checks tailored for open.Yellow.os.
+Typical checks include package status, disk usage, services, and configuration sanity.
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show help and exit.
+.TP
+.B \-\-quiet
+Reduce output to warnings and errors.
+.TP
+.B \-\-json
+Print results in JSON for machine processing.
+.SH EXIT STATUS
+Aggregate result: 0 if all checks passed, non-zero otherwise.
+.SH SEE ALSO
+.BR systemctl (1),
+.BR df (1),
+.BR apt (8)

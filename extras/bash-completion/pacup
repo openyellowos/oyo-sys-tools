@@ -1,0 +1,14 @@
+# bash completion for pacup
+_pacup()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="--help -h --dry-run --auto-yes --version"
+
+    if [[ ${cur} == -* ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+        return 0
+    fi
+}
+complete -F _pacup pacup

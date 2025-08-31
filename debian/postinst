@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+warn_dupe () {
+  BIN="$1"
+  if [ -x "/usr/local/bin/$BIN" ]; then
+    echo "Warning: /usr/local/bin/$BIN exists. Because /usr/local/bin precedes /usr/bin in PATH on many systems,"
+    echo "the local copy may be run instead of the packaged one. Consider deleting or renaming the local copy."
+  fi
+}
+
+case "$1" in
+  configure)
+    for b in help-hw oyo-check pacup; do warn_dupe "$b"; done
+    ;;
+esac
+
+#DEBHELPER#

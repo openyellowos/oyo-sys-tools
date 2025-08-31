@@ -1,0 +1,6 @@
+# bash completion for pacup
+_pacup()
+{
+    COMPREPLY=()
+}
+complete -F _pacup pacup
