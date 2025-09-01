@@ -1,3 +1,9 @@
+oyo-sys-tools (1.0-3) kerria; urgency=medium
+
+  * Fix build error by switching to native package format.
+
+ -- toshio <solution92001@gmail.com>  Mon, 01 Sep 2025 21:17:06 +0900
+
 oyo-sys-tools (1.0-2)  kerria; urgency=medium
 
   * Fixed compile error
