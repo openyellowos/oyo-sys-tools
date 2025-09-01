@@ -1,0 +1,12 @@
+./src/help-hw
+./src/oyo-check
+./src/pacup
+./man/help-hw.1
+./man/oyo-check.1
+./man/pacup.1
+./extras/bash-completion/help-hw
+./extras/bash-completion/oyo-check
+./extras/bash-completion/pacup
+./extras/zsh-completion/_help-hw
+./extras/zsh-completion/_oyo-check
+./extras/zsh-completion/_pacup

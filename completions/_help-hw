@@ -1,2 +1,0 @@
-#compdef help-hw
-_arguments '*:file:_files'

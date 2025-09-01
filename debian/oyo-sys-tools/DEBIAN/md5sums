@@ -1,0 +1,13 @@
+1051cee2595623628e98db48a2198281  usr/bin/help-hw
+d470aa905ddc73d56adcf04ced5f3897  usr/bin/oyo-check
+18143844a1cc5dfa385d9b6ca468e05c  usr/bin/pacup
+32f03a57dfc1dc70fed244e6945145b8  usr/share/bash-completion/completions/help-hw
+8ccf619c263ce9931df528c01dd5c72b  usr/share/bash-completion/completions/oyo-check
+fefc0116c5a080ce683a685828e6d6fa  usr/share/bash-completion/completions/pacup
+a3b1ad2cadc3de8db2056669b15c2b97  usr/share/doc/oyo-sys-tools/changelog.Debian.gz
+480f236e5dedbc7f249ca8c02027c9e2  usr/share/man/man1/help-hw.1.gz
+00f1e4b4b290328014653a1b7c2d6141  usr/share/man/man1/oyo-check.1.gz
+9ca6e3d9b72f4ddec8e24bbe3f32e6d5  usr/share/man/man1/pacup.1.gz
+078dbe53f153f08409e6f0a0169f31b9  usr/share/zsh/site-functions/_help-hw
+a982ef2876fea2489f5bf9d94f4163df  usr/share/zsh/site-functions/_oyo-check
+e28c13ede182fb57adc3412cb628a159  usr/share/zsh/site-functions/_pacup

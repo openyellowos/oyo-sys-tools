@@ -1,12 +1,9 @@
 src/help-hw usr/bin
 src/oyo-check usr/bin
 src/pacup usr/bin
-completions/help-hw.bash-completion usr/share/bash-completion/completions/help-hw
-completions/oyo-check.bash-completion usr/share/bash-completion/completions/oyo-check
-completions/pacup.bash-completion usr/share/bash-completion/completions/pacup
-completions/_help-hw usr/share/zsh/site-functions/
-completions/_oyo-check usr/share/zsh/site-functions/
-completions/_pacup usr/share/zsh/site-functions/
+man/help-hw.1 usr/share/man/man1
+man/oyo-check.1 usr/share/man/man1
+man/pacup.1 usr/share/man/man1
 extras/bash-completion/help-hw usr/share/bash-completion/completions
 extras/bash-completion/oyo-check usr/share/bash-completion/completions
 extras/bash-completion/pacup usr/share/bash-completion/completions

@@ -5,4 +5,4 @@ for b in help-hw oyo-check pacup; do
     echo "Warning: /usr/local/bin/$b exists and may shadow /usr/bin/$b"
   fi
 done
-#DEBHELPER#
+

@@ -1,2 +1,0 @@
-#compdef pacup
-_arguments '*:file:_files'
