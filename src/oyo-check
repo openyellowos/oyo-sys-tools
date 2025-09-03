@@ -1,2 +1,130 @@
 #!/bin/bash
-echo Running oyo-check
+
+# === oyo-check : open.Yellow.os システム診断ツール ===
+# 使用例:
+#   oyo-check --profile
+#   oyo-check --disk
+#   oyo-check --security
+#   oyo-check --services
+#   oyo-check --apt
+#   oyo-check --logs
+#   oyo-check --all
+
+show_help() {
+    echo "Usage: oyo-check [OPTION]"
+    echo ""
+    echo "Options:"
+    echo "  --profile     CPU・メモリ・起動時間プロファイル"
+    echo "  --services    自動起動中サービスの確認"
+    echo "  --apt         APT/リポジトリの状態確認"
+    echo "  --logs        ログの簡易チェック"
+    echo "  --all         すべて実行"
+    echo "  --help        このヘルプを表示"
+}
+
+check_profile() {
+    echo "### システムプロファイル"
+    echo "測定日時: $(date '+%Y-%m-%d %H:%M:%S')"
+
+    echo ""
+    echo "#### メモリ使用量"
+    free -h | awk '/Mem:/ {print "総メモリ: " $2 "\n使用中: " $3 "\n利用可能: " $7}'
+
+    echo ""
+    echo "#### CPUアイドル率"
+    IDLE=$(top -bn1 | grep "Cpu(s)" | awk -F'id,' '{ split($1, vs, ","); v=vs[length(vs)]; sub("%Cpu(s):", "", v); print v }' | awk '{print $NF}')
+    echo "現在のCPUアイドル率: $IDLE%"
+
+    echo ""
+    echo "#### 起動時間"
+    systemd-analyze time
+
+    echo ""
+    echo "#### 起動に時間がかかっているサービス (上位5件)"
+    systemd-analyze blame | head -n 5
+}
+
+check_services() {
+    echo "### 自動起動中のサービス"
+    echo ""
+    systemctl list-units --type=service --state=running --no-pager
+
+    echo ""
+    echo "### 有効化されているユニットファイル"
+    echo ""
+    systemctl list-unit-files --state=enabled --no-pager
+}
+
+check_apt() {
+    echo "### APTおよびリポジトリの状態"
+    echo ""
+    echo "[APT update 実行]"
+    apt update
+
+    echo ""
+    echo "[sources.list の確認]"
+    grep -r '' /etc/apt/sources.list*
+
+    echo ""
+    echo "[trusted.gpg.d の鍵一覧]"
+    ls /etc/apt/trusted.gpg.d/
+}
+
+check_logs() {
+    echo "### ログの簡易チェック"
+
+    echo ""
+    echo "#### 警告以上のログ (現在のブート)"
+    journalctl -p warning -b --no-pager
+
+    echo ""
+    echo "#### 起動失敗したサービス一覧"
+    systemctl --failed --no-pager
+}
+
+if [ $# -eq 0 ]; then
+    show_help
+    if [ "$0" = "$BASH_SOURCE" ]; then
+        exit 1
+    else
+        return 1
+    fi
+fi
+
+for arg in "$@"; do
+    case $arg in
+        --profile)
+            check_profile
+            ;;
+        --services)
+            check_services
+            ;;
+        --apt)
+            check_apt
+            ;;
+        --logs)
+            check_logs
+            ;;
+        --all)
+            check_profile
+            echo ""
+            check_services
+            echo ""
+            check_apt
+            echo ""
+            check_logs
+            ;;
+        --help)
+            show_help
+            ;;
+        *)
+            echo "不明なオプション: $arg"
+            show_help
+            if [ "$0" = "$BASH_SOURCE" ]; then
+                exit 1
+            else
+                return 1
+            fi
+            ;;
+    esac
+done
