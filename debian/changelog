@@ -1,3 +1,9 @@
+oyo-sys-tools (1.0-4) kerria; urgency=medium
+
+  * Replace dummy command stubs with actual executable scripts 
+
+ -- toshio <solution92001@gmail.com>  Wed, 03 Sep 2025 22:53:47 +0900
+
 oyo-sys-tools (1.0-3) kerria; urgency=medium
 
   * Fix build error by switching to native package format.
